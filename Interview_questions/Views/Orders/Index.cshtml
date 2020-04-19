@@ -1,0 +1,78 @@
+﻿
+@using InterviewDLL
+@{
+
+    List<Order> lstOrder = ViewBag.lstOrders;
+}
+    <head>
+        <meta name="viewport" content="width=device-width" />
+
+        <link href="~/Content/bootstrap0.min.css" rel="stylesheet" />
+        <script src="~/Content/jquery-3.4.1.min.js"></script>
+
+        <title>Order详细信息列表</title>
+    </head>
+    <body>
+        <center>
+            <h1>第六步完善第五步MVC架构</h1>
+    
+            <form action="/Orders/GetOrders" method="post">
+                <div class="input-group mb-3" style="width:400px">
+                    <input type="text" class="form-control" placeholder="请输入1722-2016" name="orderID" value="@(ViewBag.orderID != null?ViewBag.orderID.ToString():"")" />
+                    <div class="input-group-append">
+                        <input type="submit" class="btn btn-info btn-search" value="查询" />                                         
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="返回第三步" class="btn btn-info btn-search"
+                               onclick="javascrtpt:window.location.href='../'"/>
+                    </div>
+                </div>
+            </form>
+
+
+        </center>
+        <div id="divstudents">
+            <table border="1" class="table" style="word-break: keep-all;width:auto">
+       
+                <thead>
+                    <tr>
+                        <th>OrderID</th>
+
+                        <th>Hospital</th>
+                        <th>Doctor</th>
+                        <th>Patient</th>
+                        <th>OrderKind</th>
+                        <th>AcceptDate</th>
+                        <th>FinishDate</th>
+                        <th>Products</th>
+                        <th>OrderProductID</th>
+                        <th>Product</th>
+                        <th>Color</th>
+                        <th>Num</th>
+                        <th>Price</th>
+                        <th>SumPrice</th>
+                    </tr>
+                </thead>
+                @{ foreach (Order order in lstOrder)
+                    {
+                        <tr class="active">
+                            <td>@order.OrderID</td>
+                            <td>@order.Hospital</td>
+                            <td>@order.Doctor</td>
+                            <td>@order.Patient</td>
+                            <td>@order.OrderKind</td>
+                            <td>@order.AcceptDate</td>
+                            <td>@order.FinishDate</td>
+                            <td>@order.Products</td>
+                            <td bgcolor="#CCFFFF">@order.OrderProduct.OrderProductID</td>
+                            <td bgcolor="#CCFFFF">@order.OrderProduct.Product</td>
+                            <td bgcolor="#CCFFFF">@order.OrderProduct.Color</td>
+                            <td bgcolor="#CCFFFF">@order.OrderProduct.Num</td>
+                            <td bgcolor="#CCFFFF">@order.OrderProduct.Price</td>
+                            <td bgcolor="#CCFFFF">@order.OrderProduct.SumPrice</td>
+                        </tr>
+                    }
+
+                }
+            </table>
+        </div>
+    </body>

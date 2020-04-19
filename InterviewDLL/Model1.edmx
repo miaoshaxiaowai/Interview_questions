@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="temp04Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="OrderProduct">
+          <Key>
+            <PropertyRef Name="OrderProductID" />
+          </Key>
+          <Property Name="OrderProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="Product" Type="nvarchar" MaxLength="200" />
+          <Property Name="Color" Type="nvarchar" MaxLength="100" />
+          <Property Name="Num" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SumPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Pos1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pos2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pos3" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pos4" Type="nvarchar" MaxLength="100" />
+          <Property Name="PosUp" Type="nvarchar" MaxLength="100" />
+          <Property Name="PosDown" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsRedo" Type="tinyint" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsMaterial" Type="tinyint" />
+          <Property Name="EffectiveCount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RowNum" Type="tinyint" />
+          <Property Name="RedoState" Type="tinyint" />
+          <Property Name="TryState" Type="tinyint" />
+          <Property Name="FrontNum" Type="int" />
+          <Property Name="BackNum" Type="int" />
+          <Property Name="BasinNum" Type="int" />
+          <Property Name="LostNum" Type="int" />
+          <Property Name="MissingTP1" Type="varchar" MaxLength="32" />
+          <Property Name="MissingTP2" Type="varchar" MaxLength="32" />
+          <Property Name="MissingTP3" Type="varchar" MaxLength="32" />
+          <Property Name="MissingTP4" Type="varchar" MaxLength="32" />
+          <Property Name="Pontic" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNum" Type="nvarchar" MaxLength="100" />
+          <Property Name="BoxNum" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hospital" Type="nvarchar" MaxLength="100" />
+          <Property Name="Doctor" Type="nvarchar" MaxLength="100" />
+          <Property Name="Patient" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrderKind" Type="nvarchar" MaxLength="100" />
+          <Property Name="SaveTime" Type="datetime" />
+          <Property Name="AcceptDate" Type="datetime" />
+          <Property Name="PlanDate" Type="datetime" />
+          <Property Name="FinishDate" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="400" />
+          <Property Name="IsFree" Type="tinyint" />
+          <Property Name="IsTry" Type="tinyint" />
+          <Property Name="IsTryFirst" Type="tinyint" />
+          <Property Name="IsRedo" Type="tinyint" />
+          <Property Name="Products" Type="nvarchar" MaxLength="300" />
+          <Property Name="Pos1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pos2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pos3" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pos4" Type="nvarchar" MaxLength="100" />
+          <Property Name="PosUp" Type="nvarchar" MaxLength="100" />
+          <Property Name="PosDown" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrderState" Type="tinyint" />
+          <Property Name="TryOrRedo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Salesman" Type="nvarchar" MaxLength="100" />
+          <Property Name="SumPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RealPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NetOrderId" Type="int" />
+          <Property Name="PatientID" Type="varchar" MaxLength="50" />
+          <Property Name="CureTimes" Type="int" />
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderType" Type="int" Nullable="false" />
+          <Property Name="ForeignFactoryId" Type="uniqueidentifier" />
+          <Property Name="IsStageAdjustment" Type="bit" />
+          <Property Name="DataType" Type="int" Nullable="false" />
+          <Property Name="TeethModelType" Type="int" />
+          <Property Name="TeethModelTrackingNumber" Type="varchar" MaxLength="128" />
+          <Property Name="MedicalRecordNetIdentification" Type="varchar" MaxLength="128" />
+          <Property Name="PatientBirthDay" Type="datetime" />
+          <Property Name="TeethModelID" Type="varchar" MaxLength="50" />
+          <Property Name="OrderNetIdentification" Type="varchar" MaxLength="128" />
+          <Property Name="OrderNetType" Type="int" />
+          <Property Name="Tag" Type="varchar" MaxLength="8000" />
+          <Property Name="IsReceiving" Type="bit" />
+          <Property Name="ExpectedFactoryName" Type="varchar" MaxLength="128" />
+          <Property Name="Department" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModelType" Type="int" />
+          <Property Name="ForeignFactoryName" Type="nvarchar" MaxLength="200" />
+          <Property Name="TryStage" Type="int" />
+          <Property Name="ReworkType" Type="int" />
+          <Property Name="OrderNetState" Type="int" />
+        </EntityType>
+        <Association Name="FK__OrderProd__Order__278583FA">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderProd__Order__2879A833">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Orders1" Type="Self.Orders" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Orders1">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="temp04ModelStoreContainer">
+          <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__OrderProd__Order__278583FA" Association="Self.FK__OrderProd__Order__278583FA">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderProd__Order__2879A833" Association="Self.FK__OrderProd__Order__2879A833">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Orders" Association="Self.FK_Orders_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Orders1" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="temp04Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OrderProduct">
+          <Key>
+            <PropertyRef Name="OrderProductID" />
+          </Key>
+          <Property Name="OrderProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="Product" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Num" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SumPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Pos1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pos2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pos3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pos4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PosUp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PosDown" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsRedo" Type="Byte" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsMaterial" Type="Byte" />
+          <Property Name="EffectiveCount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RowNum" Type="Byte" />
+          <Property Name="RedoState" Type="Byte" />
+          <Property Name="TryState" Type="Byte" />
+          <Property Name="FrontNum" Type="Int32" />
+          <Property Name="BackNum" Type="Int32" />
+          <Property Name="BasinNum" Type="Int32" />
+          <Property Name="LostNum" Type="Int32" />
+          <Property Name="MissingTP1" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="MissingTP2" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="MissingTP3" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="MissingTP4" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Pontic" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__OrderProd__Order__278583FA" FromRole="OrderProduct" ToRole="Orders" />
+          <NavigationProperty Name="Order1" Relationship="Self.FK__OrderProd__Order__2879A833" FromRole="OrderProduct" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNum" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BoxNum" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Hospital" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Doctor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Patient" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrderKind" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SaveTime" Type="DateTime" Precision="3" />
+          <Property Name="AcceptDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishDate" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="IsFree" Type="Byte" />
+          <Property Name="IsTry" Type="Byte" />
+          <Property Name="IsTryFirst" Type="Byte" />
+          <Property Name="IsRedo" Type="Byte" />
+          <Property Name="Products" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Pos1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pos2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pos3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pos4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PosUp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PosDown" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrderState" Type="Byte" />
+          <Property Name="TryOrRedo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Salesman" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SumPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RealPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetOrderId" Type="Int32" />
+          <Property Name="PatientID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CureTimes" Type="Int32" />
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="OrderType" Type="Int32" Nullable="false" />
+          <Property Name="ForeignFactoryId" Type="Guid" />
+          <Property Name="IsStageAdjustment" Type="Boolean" />
+          <Property Name="DataType" Type="Int32" Nullable="false" />
+          <Property Name="TeethModelType" Type="Int32" />
+          <Property Name="TeethModelTrackingNumber" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalRecordNetIdentification" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="PatientBirthDay" Type="DateTime" Precision="3" />
+          <Property Name="TeethModelID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNetIdentification" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNetType" Type="Int32" />
+          <Property Name="Tag" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="IsReceiving" Type="Boolean" />
+          <Property Name="ExpectedFactoryName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ModelType" Type="Int32" />
+          <Property Name="ForeignFactoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TryStage" Type="Int32" />
+          <Property Name="ReworkType" Type="Int32" />
+          <Property Name="OrderNetState" Type="Int32" />
+          <NavigationProperty Name="OrderProducts" Relationship="Self.FK__OrderProd__Order__278583FA" FromRole="Orders" ToRole="OrderProduct" />
+          <NavigationProperty Name="OrderProducts1" Relationship="Self.FK__OrderProd__Order__2879A833" FromRole="Orders" ToRole="OrderProduct" />
+          <NavigationProperty Name="Orders1" Relationship="Self.FK_Orders_Orders" FromRole="Orders" ToRole="Orders1" />
+          <NavigationProperty Name="Order1" Relationship="Self.FK_Orders_Orders" FromRole="Orders1" ToRole="Orders" />
+        </EntityType>
+        <Association Name="FK__OrderProd__Order__278583FA">
+          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderProd__Order__2879A833">
+          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Orders">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="Orders1" Type="Self.Order" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Orders1">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="temp04Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <AssociationSet Name="FK__OrderProd__Order__278583FA" Association="Self.FK__OrderProd__Order__278583FA">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderProduct" EntitySet="OrderProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderProd__Order__2879A833" Association="Self.FK__OrderProd__Order__2879A833">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderProduct" EntitySet="OrderProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Orders" Association="Self.FK_Orders_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Orders1" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="temp04ModelStoreContainer" CdmEntityContainer="temp04Entities2">
+          <EntitySetMapping Name="OrderProducts">
+            <EntityTypeMapping TypeName="temp04Model.OrderProduct">
+              <MappingFragment StoreEntitySet="OrderProduct">
+                <ScalarProperty Name="OrderProductID" ColumnName="OrderProductID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="Pos1" ColumnName="Pos1" />
+                <ScalarProperty Name="Pos2" ColumnName="Pos2" />
+                <ScalarProperty Name="Pos3" ColumnName="Pos3" />
+                <ScalarProperty Name="Pos4" ColumnName="Pos4" />
+                <ScalarProperty Name="PosUp" ColumnName="PosUp" />
+                <ScalarProperty Name="PosDown" ColumnName="PosDown" />
+                <ScalarProperty Name="IsRedo" ColumnName="IsRedo" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsMaterial" ColumnName="IsMaterial" />
+                <ScalarProperty Name="EffectiveCount" ColumnName="EffectiveCount" />
+                <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+                <ScalarProperty Name="RedoState" ColumnName="RedoState" />
+                <ScalarProperty Name="TryState" ColumnName="TryState" />
+                <ScalarProperty Name="FrontNum" ColumnName="FrontNum" />
+                <ScalarProperty Name="BackNum" ColumnName="BackNum" />
+                <ScalarProperty Name="BasinNum" ColumnName="BasinNum" />
+                <ScalarProperty Name="LostNum" ColumnName="LostNum" />
+                <ScalarProperty Name="MissingTP1" ColumnName="MissingTP1" />
+                <ScalarProperty Name="MissingTP2" ColumnName="MissingTP2" />
+                <ScalarProperty Name="MissingTP3" ColumnName="MissingTP3" />
+                <ScalarProperty Name="MissingTP4" ColumnName="MissingTP4" />
+                <ScalarProperty Name="Pontic" ColumnName="Pontic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="temp04Model.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+                <ScalarProperty Name="BoxNum" ColumnName="BoxNum" />
+                <ScalarProperty Name="Hospital" ColumnName="Hospital" />
+                <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+                <ScalarProperty Name="Patient" ColumnName="Patient" />
+                <ScalarProperty Name="OrderKind" ColumnName="OrderKind" />
+                <ScalarProperty Name="SaveTime" ColumnName="SaveTime" />
+                <ScalarProperty Name="AcceptDate" ColumnName="AcceptDate" />
+                <ScalarProperty Name="PlanDate" ColumnName="PlanDate" />
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsFree" ColumnName="IsFree" />
+                <ScalarProperty Name="IsTry" ColumnName="IsTry" />
+                <ScalarProperty Name="IsTryFirst" ColumnName="IsTryFirst" />
+                <ScalarProperty Name="IsRedo" ColumnName="IsRedo" />
+                <ScalarProperty Name="Products" ColumnName="Products" />
+                <ScalarProperty Name="Pos1" ColumnName="Pos1" />
+                <ScalarProperty Name="Pos2" ColumnName="Pos2" />
+                <ScalarProperty Name="Pos3" ColumnName="Pos3" />
+                <ScalarProperty Name="Pos4" ColumnName="Pos4" />
+                <ScalarProperty Name="PosUp" ColumnName="PosUp" />
+                <ScalarProperty Name="PosDown" ColumnName="PosDown" />
+                <ScalarProperty Name="OrderState" ColumnName="OrderState" />
+                <ScalarProperty Name="TryOrRedo" ColumnName="TryOrRedo" />
+                <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+                <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="RealPrice" ColumnName="RealPrice" />
+                <ScalarProperty Name="NetOrderId" ColumnName="NetOrderId" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="CureTimes" ColumnName="CureTimes" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="ForeignFactoryId" ColumnName="ForeignFactoryId" />
+                <ScalarProperty Name="IsStageAdjustment" ColumnName="IsStageAdjustment" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="TeethModelType" ColumnName="TeethModelType" />
+                <ScalarProperty Name="TeethModelTrackingNumber" ColumnName="TeethModelTrackingNumber" />
+                <ScalarProperty Name="MedicalRecordNetIdentification" ColumnName="MedicalRecordNetIdentification" />
+                <ScalarProperty Name="PatientBirthDay" ColumnName="PatientBirthDay" />
+                <ScalarProperty Name="TeethModelID" ColumnName="TeethModelID" />
+                <ScalarProperty Name="OrderNetIdentification" ColumnName="OrderNetIdentification" />
+                <ScalarProperty Name="OrderNetType" ColumnName="OrderNetType" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="IsReceiving" ColumnName="IsReceiving" />
+                <ScalarProperty Name="ExpectedFactoryName" ColumnName="ExpectedFactoryName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="ModelType" ColumnName="ModelType" />
+                <ScalarProperty Name="ForeignFactoryName" ColumnName="ForeignFactoryName" />
+                <ScalarProperty Name="TryStage" ColumnName="TryStage" />
+                <ScalarProperty Name="ReworkType" ColumnName="ReworkType" />
+                <ScalarProperty Name="OrderNetState" ColumnName="OrderNetState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
